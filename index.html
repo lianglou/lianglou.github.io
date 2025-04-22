@@ -16,7 +16,7 @@
 
         /* 大标题样式 */
         h1 {
-            font-size: 3rem; /* 设置标题字体大小 */
+            font-size: clamp(1.5rem, 5vw, 3rem); /* 动态调整字体大小 */
             margin-top: 20px; /* 标题与顶部间距 */
             color: #333; /* 标题颜色 */
         }
@@ -28,11 +28,12 @@
             align-items: center; /* 垂直居中 */
             gap: 20px; /* 图片之间的间距 */
             margin-top: 50px; /* 图片区与标题之间的间距 */
+            flex-wrap: wrap; /* 允许换行 */
         }
 
         /* 图片样式 */
         .image-container img {
-            width: 200px; /* 设置图片宽度 */
+            width: calc(33% - 20px); /* 默认每张图片占三分之一宽度，减去间距 */
             height: auto; /* 高度自适应 */
             border-radius: 10px; /* 图片圆角效果 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
@@ -42,6 +43,19 @@
         /* 鼠标悬停时图片放大 */
         .image-container img:hover {
             transform: scale(1.1);
+        }
+
+        /* 响应式设计：针对小屏幕 */
+        @media (max-width: 768px) {
+            .image-container img {
+                width: calc(50% - 20px); /* 每张图片占一半宽度 */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-container img {
+                width: 100%; /* 每张图片占满整个宽度 */
+            }
         }
     </style>
 </head>

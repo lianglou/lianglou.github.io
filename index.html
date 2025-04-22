@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片展示页面</title>
+    <style>
+        /* 页面样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center; /* 整体内容居中 */
+            background-color: #f4f4f4;
+        }
+
+        /* 大标题样式 */
+        h1 {
+            font-size: 3rem; /* 设置标题字体大小 */
+            margin-top: 20px; /* 标题与顶部间距 */
+            color: #333; /* 标题颜色 */
+        }
+
+        /* 图片区容器 */
+        .image-container {
+            display: flex; /* 使用弹性布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            gap: 20px; /* 图片之间的间距 */
+            margin-top: 50px; /* 图片区与标题之间的间距 */
+        }
+
+        /* 图片样式 */
+        .image-container img {
+            width: 200px; /* 设置图片宽度 */
+            height: auto; /* 高度自适应 */
+            border-radius: 10px; /* 图片圆角效果 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+            transition: transform 0.3s ease; /* 添加鼠标悬停放大效果 */
+        }
+
+        /* 鼠标悬停时图片放大 */
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 大标题 -->
+    <h1>大标题</h1>
+
+    <!-- 图片区 -->
+    <div class="image-container">
+        <!-- 图片1 -->
+        <img src="image1.jpg" alt="图片1">
+        <!-- 图片2 -->
+        <img src="image2.jpg" alt="图片2">
+        <!-- 图片3 -->
+        <img src="image3.jpg" alt="图片3">
+    </div>
+
+</body>
+</html>

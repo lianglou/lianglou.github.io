@@ -3,50 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>60Pcs Mini Resin Butterflies, Miniature Dollhouse Accessories Tiny Butterflies for Crafts, Mini Resin Animals Figurines for DIY Fairy Garden Dollhouse Micro Landscaping Decoration</title>
+    <title>mall</title>
     <style>
         /* 页面样式 */
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            text-align: center; /* 整体内容居中 */
             background-color: #f4f4f4;
         }
 
-        /* 大标题样式 */
-        h1 {
-            font-size: clamp(1.5rem, 5vw, 3rem); /* 动态调整字体大小 */
-            margin-top: 20px; /* 标题与顶部间距 */
-            color: #333; /* 标题颜色 */
+        /* 每个区域的容器 */
+        .section {
+            display: flex; /* 左右布局 */
+            align-items: flex-start; /* 垂直方向顶部对齐 */
+            gap: 20px; /* 主图与文案之间的间距 */
+            margin: 20px auto; /* 区域之间的间距 */
+            max-width: 1200px; /* 最大宽度限制 */
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        /* 图片区容器 */
-        .image-container {
-            display: flex; /* 使用弹性布局 */
+        /* 左边主图和缩略图区域 */
+        .image-area {
+            display: flex;
             flex-direction: column; /* 纵向排列 */
-            align-items: center; /* 水平居中 */
-            gap: 20px; /* 图片之间的间距 */
-            margin-top: 50px; /* 图片区与标题之间的间距 */
+            align-items: center; /* 居中对齐 */
+            gap: 10px; /* 主图与缩略图之间的间距 */
         }
 
-        /* 图片样式 */
-        .image-container img {
-            width: 90%; /* 默认宽度占屏幕宽度的90% */
-            max-width: 600px; /* 最大宽度限制 */
+        /* 主图样式 */
+        .main-image img {
+            width: 300px; /* 主图宽度 */
             height: auto; /* 高度自适应 */
-            border-radius: 10px; /* 图片圆角效果 */
+            border-radius: 10px; /* 圆角效果 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
-            cursor: pointer; /* 鼠标悬停时显示手型 */
-            transition: transform 0.3s ease; /* 添加鼠标悬停放大效果 */
+            cursor: pointer; /* 提示用户可以点击 */
         }
 
-        /* 鼠标悬停时图片放大 */
-        .image-container img:hover {
-            transform: scale(1.1);
+        /* 缩略图容器 */
+        .thumbnails {
+            display: flex; /* 横向排列 */
+            gap: 5px; /* 缩略图之间的间距 */
         }
 
-        /* 放大图片的样式 */
+        /* 缩略图样式 */
+        .thumbnails img {
+            width: 60px; /* 缩略图宽度 */
+            height: auto; /* 高度自适应 */
+            border-radius: 5px; /* 圆角效果 */
+            border: 2px solid transparent; /* 默认无边框 */
+            cursor: pointer; /* 提示用户可以点击 */
+            transition: border 0.3s ease; /* 边框变化动画 */
+        }
+
+        /* 缩略图选中状态 */
+        .thumbnails img.active {
+            border: 2px solid #007bff; /* 选中时添加蓝色边框 */
+        }
+
+        /* 右边文案区域 */
+        .content-area {
+            display: flex;
+            flex-direction: column; /* 纵向排列 */
+            gap: 10px; /* 标题与文案之间的间距 */
+        }
+
+        /* 标题样式 */
+        .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 文案样式 */
+        .description {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* 放大图片的模态框 */
         .modal {
             display: none; /* 默认隐藏 */
             position: fixed; /* 固定定位 */
@@ -71,27 +107,119 @@
 </head>
 <body>
 
-    <!-- 大标题 -->
-    <h1>60Pcs Mini Resin Butterflies, Miniature Dollhouse Accessories Tiny Butterflies for Crafts, Mini Resin Animals Figurines for DIY Fairy Garden Dollhouse Micro Landscaping Decoration</h1>
+    <!-- 第一个区域 -->
+    <div class="section">
+        <div class="image-area">
+            <!-- 主图 -->
+            <div class="main-image">
+                <img id="main-img-1" src="image10.jpg" alt="主图1" onclick="openModal(this)">
+            </div>
+            <!-- 缩略图 -->
+            <div class="thumbnails">
+                <img src="thumb1-1.jpg" alt="缩略图1" onclick="changeMainImage('main-img-1', 'image11.jpg', this)">
+                <img src="thumb1-2.jpg" alt="缩略图2" onclick="changeMainImage('main-img-1', 'image12.jpg', this)">
+                <img src="thumb1-3.jpg" alt="缩略图3" onclick="changeMainImage('main-img-1', 'image13.jpg', this)">
+                <img src="thumb1-4.jpg" alt="缩略图4" onclick="changeMainImage('main-img-1', 'image14.jpg', this)">
+            </div>
+        </div>
+        <div class="content-area">
+            <div class="title">60Pcs Mini Resin Butterflies, Miniature Dollhouse Accessories Tiny Butterflies for Crafts, Mini Resin Animals Figurines for DIY Fairy Garden Dollhouse Micro Landscaping Decoration</div>
+            <div class="description">Package Content】You will get 60pcs colorful mini resin butterflies. Sufficient in quantity and various in style to meet your various decoration needs, so that your decoration is no longer monotonous
+【Premium Material】The micro butterflies are made of premium resin material that is waterproof and resistant to fading. They can keep longer and support your miniature landscape longer.
+【Wide Application】These tiny butterflies look so realistic and cute, it is very easy to attract more attention. They are suitable for decorating potted plants, micro landscape gardens, micro bonsai, dollhouses, fairy houses and more.
+【Mini Size】Each tiny resin butterfly measures about 0.39x0.31 inch, small and lightweight, easy to carry and not take up much storage space, perfect for dollhouse decoration and more.
+【Perfect Gift】These small butterflies for crafts are ideal gifts for your families and friends who love DIY crafts. A perfect gift for birthday, New Year, Christmas, Children's Day, etc.</div>
+        </div>
+    </div>
 
-    <!-- 图片区 -->
-    <div class="image-container">
-        <!-- 图片1 -->
-        <img src="image1.jpg" alt="图片1" onclick="openModal(this)">
-        <!-- 图片2 -->
-        <img src="image2.jpg" alt="图片2" onclick="openModal(this)">
-        <!-- 图片3 -->
-        <img src="image3.jpg" alt="图片3" onclick="openModal(this)">
-        <img src="image4.jpg" alt="图片3" onclick="openModal(this)">
+    <!-- 第二个区域 -->
+    <div class="section">
+        <div class="image-area">
+            <div class="main-image">
+                <img id="main-img-2" src="image20.jpg" alt="主图2" onclick="openModal(this)">
+            </div>
+            <div class="thumbnails">
+                <img src="thumb2-1.jpg" alt="缩略图1" onclick="changeMainImage('main-img-2', 'image21.jpg', this)">
+                <img src="thumb2-2.jpg" alt="缩略图2" onclick="changeMainImage('main-img-2', 'image22.jpg', this)">
+                <img src="thumb2-3.jpg" alt="缩略图3" onclick="changeMainImage('main-img-2', 'image23.jpg', this)">
+                <img src="thumb2-4.jpg" alt="缩略图4" onclick="changeMainImage('main-img-2', 'image24.jpg', this)">
+            </div>
+        </div>
+        <div class="content-area">
+            <div class="title">4pcs Headband Holder Stand Scrunchie Organizer, Girls Hair Accessories Organizer Storage for Headband Hairband Hair Ties, Clear Glitter Adhesive Scrunchy Holder</div>
+            <div class="description">【Enough To Use】: The package provides you with 4 pieces of adhesive scrunchie holders, available in 2 sizes, the large one is about 11 cm/ 4.33 inches, the small one is about 7 cm/ 2.76 inches, also include 6 pieces of adhesive(extra 2pcs is reserved), they are enough for you to use and replace in your daily life, you can choose the size you need.
+【Good Quality】: Just pasted these hair tie organizer on object surface without drilling with nail. we use thicker adhesive to ensure our hair tie holder being firmly pasted, so they will last for a long time and will not fall off. They can be widely applied in marble, metal, ceramic tile, glass, wood and other smooth surfaces.
+【Widely Used】: You can also arbitrarily adjust the direction of the holders to make it work like other items. Install them vertically or horizontally according to your actual needs, also head to head connection is supported. Enough headband holder support to place a variety of stuffs, such as hair ties, hairbands, headbands, watches, bracelets, jewelry, bath balls, necklaces and so on. Various installation methods are available for you to assemble.
+【Perfect Gifts】: These scrunchie organizers are made of clear diamond shape plastic, fashionable and stylish in appearance, looking very shiny, beautiful and unique. send them as gifts for your family, girlfriends and friends. Not only a good tool to be hair accessories organizers in their daily life, but also giving their room a sense of fashion and personality.
+【After Sales Service】: If you are not satisfied with our products, please contact us and we will be happy to provide you with the option of replacement or refund. We support our products 100% and hope our customers love our products as much as we do!</div>
+        </div>
+    </div>
+
+    <!-- 第3个区域 -->
+    <div class="section">
+        <div class="image-area">
+            <div class="main-image">
+                <img id="main-img-2" src="image30.jpg" alt="主图2" onclick="openModal(this)">
+            </div>
+            <div class="thumbnails">
+                <img src="thumb2-1.jpg" alt="缩略图1" onclick="changeMainImage('main-img-2', 'image31.jpg', this)">
+                <img src="thumb2-2.jpg" alt="缩略图2" onclick="changeMainImage('main-img-2', 'image32.jpg', this)">
+                <img src="thumb2-3.jpg" alt="缩略图3" onclick="changeMainImage('main-img-2', 'image33.jpg', this)">
+                <img src="thumb2-4.jpg" alt="缩略图4" onclick="changeMainImage('main-img-2', 'image34.jpg', this)">
+            </div>
+        </div>
+        <div class="content-area">
+            <div class="title">120Pcs Mini Resin Turtles, Glow in The Dark Miniature Tiny Turtles for Crafts, Micro Resin Animals Figurines for DIY Fairy Garden Dollhouse Micro Landscaping Decoration</div>
+            <div class="description">Package Content: Each set includes 120pcs mini resin turtles, offering an ample supply of tiny turtles for all your creative endeavors, ensuring you'll have plenty to use for crafting or decorating.
+Premium Material: Crafted from durable and safe resin, these tiny plastic turtles are designed to withstand the test of time, allowing you to enjoy your creations without worrying about wear and tear.
+Wide Application: Perfect for various uses, including fairy garden setups, dollhouse decorations, or as charming additions to your miniature landscape; these versatile mini turtles make every space magical.
+Mini Size: Each little turtle measures just the right size for micro landscaping and DIY crafts, allowing you to cleverly hide tiny turtles in unique spots or use them as delightful table decor.
+Perfect Gift: An ideal present for craft enthusiasts, children, or collectors, these glow in the dark turtles bring joy and creativity to anyone who loves miniature art or enjoys imaginative play.</div>
+        </div>
+    </div>
+
+    <!-- 第4个区域 -->
+    <div class="section">
+        <div class="image-area">
+            <div class="main-image">
+                <img id="main-img-2" src="image40.jpg" alt="主图2" onclick="openModal(this)">
+            </div>
+            <div class="thumbnails">
+                <img src="thumb2-1.jpg" alt="缩略图1" onclick="changeMainImage('main-img-2', 'image41.jpg', this)">
+                <img src="thumb2-2.jpg" alt="缩略图2" onclick="changeMainImage('main-img-2', 'image42.jpg', this)">
+                <img src="thumb2-3.jpg" alt="缩略图3" onclick="changeMainImage('main-img-2', 'image43.jpg', this)">
+                <img src="thumb2-4.jpg" alt="缩略图4" onclick="changeMainImage('main-img-2', 'image44.jpg', this)">
+            </div>
+        </div>
+        <div class="content-area">
+            <div class="title">120pcs Shower Caps for Sourdough Bread, Reusable Bowl Covers for Proofing, Plastic Bread Covers With Elastic</div>
+            <div class="description">【Bread Proofing Covers】Our shower caps for sourdough bread are excellent tools for sourdough bread proofing, Observing sourdough bread through transparent cover in real time helps you more easily and efficiently master the making bread process, improve the successful rate of making delicious bread.
+【Compatible with All Size Bowls】These elastic plastic covers can stretch to max 16.5 inch, providing a seamless fit for various shapes or size bowls for sourdough bread. These bread proofing covers provide a convenient, hygienic option for bread proofing without the need for cleaning.
+【Package Include】You will get 120pcs bread bowl covers, which will be full meet needs, it is the best choice as covers for bread proofing basket.
+【High Quality Material】plastic bowl covers for bread proofing are made of food-grade healthy PE material, it is safe and easy to use, super durable and not easy to tear.
+【Wide Application】These sourdough proofing covers not only be used for bread rising, but also be used for food preservation, outdoor camping, picnic, barbecue. Use it to cover the food to prevent dust or unclean things floating into the food, for your safety.</div>
+        </div>
     </div>
 
     <!-- 放大图片的模态框 -->
     <div id="modal" class="modal" onclick="closeModal()">
-        <span class="close">&times;</span>
         <img id="modal-img" src="" alt="放大图片">
     </div>
 
     <script>
+        // 切换主图
+        function changeMainImage(mainImgId, newSrc, thumbnail) {
+            const mainImg = document.getElementById(mainImgId);
+            mainImg.src = newSrc; // 更新主图路径
+
+            // 清除所有缩略图的选中状态
+            const thumbnails = thumbnail.parentElement.querySelectorAll('img');
+            thumbnails.forEach(img => img.classList.remove('active'));
+
+            // 设置当前缩略图为选中状态
+            thumbnail.classList.add('active');
+        }
+
         // 打开放大图片模态框
         function openModal(img) {
             const modal = document.getElementById('modal');

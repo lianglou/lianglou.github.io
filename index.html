@@ -37,6 +37,7 @@
             height: auto; /* 高度自适应 */
             border-radius: 10px; /* 图片圆角效果 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+            cursor: pointer; /* 鼠标悬停时显示手型 */
             transition: transform 0.3s ease; /* 添加鼠标悬停放大效果 */
         }
 
@@ -45,11 +46,26 @@
             transform: scale(1.1);
         }
 
-        /* 响应式设计：针对小屏幕 */
-        @media (max-width: 480px) {
-            .image-container img {
-                width: 100%; /* 在极小屏幕上占满整个宽度 */
-            }
+        /* 放大图片的样式 */
+        .modal {
+            display: none; /* 默认隐藏 */
+            position: fixed; /* 固定定位 */
+            z-index: 1000; /* 置于最顶层 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* 半透明背景 */
+        }
+
+        .modal img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%; /* 最大宽度 */
+            max-height: 90%; /* 最大高度 */
+            border-radius: 10px; /* 圆角效果 */
         }
     </style>
 </head>
@@ -61,14 +77,35 @@
     <!-- 图片区 -->
     <div class="image-container">
         <!-- 图片1 -->
-        <img src="image1.jpg" alt="1">
+        <img src="image1.jpg" alt="图片1" onclick="openModal(this)">
         <!-- 图片2 -->
-        <img src="image2.jpg" alt="2">
+        <img src="image2.jpg" alt="图片2" onclick="openModal(this)">
         <!-- 图片3 -->
-        <img src="image3.jpg" alt="3">
-        <!-- 图片4 -->
-        <img src="image4.jpg" alt="3">
+        <img src="image3.jpg" alt="图片3" onclick="openModal(this)">
+        <img src="image4.jpg" alt="图片3" onclick="openModal(this)">
     </div>
+
+    <!-- 放大图片的模态框 -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img id="modal-img" src="" alt="放大图片">
+    </div>
+
+    <script>
+        // 打开放大图片模态框
+        function openModal(img) {
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modal-img');
+            modal.style.display = 'block'; // 显示模态框
+            modalImg.src = img.src; // 设置放大图片的路径
+        }
+
+        // 关闭放大图片模态框
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none'; // 隐藏模态框
+        }
+    </script>
 
 </body>
 </html>
